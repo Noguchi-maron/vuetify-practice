@@ -1,8 +1,8 @@
 <template>
 <v-app>
-  <v-navigation-drawer app>
-    <a>TopPage</a><br>
-    <a>About</a>
+  <v-navigation-drawer app mx-auto my-0>
+    <v-btn text>TopPage</v-btn><br>
+    <v-btn text>About</v-btn>
   </v-navigation-drawer>
 
   <v-app-bar app>
@@ -15,12 +15,12 @@
     <!-- Provides the application the proper gutter -->
     <v-container fluid>
       <v-form>
-      <v-col sm="6">
-      <v-text-field v-model="msg" label="Name" clearable @focus="isFocus=true" @blur="isFocus=false">
+      <v-col sm6>
+      <v-text-field v-model="msg" label="Name" clearable>
       </v-text-field>
       </v-col>
-      <v-btn elevation="2">
-        送信
+      <v-btn elevation="2" outlined class="font-weight-bold">
+        保存
       </v-btn>
 
       </v-form>
@@ -41,7 +41,6 @@ export default {
   data () {
     return {
       msg: '',
-      isFocus: false
     }
   },
   components: {
