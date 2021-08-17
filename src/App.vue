@@ -1,12 +1,14 @@
 <template>
 <v-app>
-  <v-navigation-drawer app mx-auto my-0>
+  <v-navigation-drawer app mx-auto my-0 v-model="drawer" temporary absolute>
     <v-btn text block>TopPage</v-btn><br>
     <v-btn text block>About</v-btn>
   </v-navigation-drawer>
 
-  <v-app-bar app>
-    TodoList
+  <v-app-bar app elevation="0" color="grey lighten-1"
+>
+<v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+    <v-toolbar-title>TodoList</v-toolbar-title>
   </v-app-bar>
 
   <!-- Sizes your content based upon application components -->
@@ -23,6 +25,7 @@
       <v-text-field v-model="msg" label="LastName" clearable>
       </v-text-field>
       </v-col>
+      
       <v-btn elevation="0" outlined class="font-weight-bold">
         保存
       </v-btn>
@@ -45,6 +48,7 @@ export default {
   data () {
     return {
       msg: '',
+      drawer: null
     }
   },
   components: {
