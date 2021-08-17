@@ -1,28 +1,50 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+<v-app>
+  <v-navigation-drawer app>
+    <a>TopPage</a><br>
+    <a>About</a>
+  </v-navigation-drawer>
+
+  <v-app-bar app>
+    TodoList
+  </v-app-bar>
+
+  <!-- Sizes your content based upon application components -->
+  <v-main>
+
+    <!-- Provides the application the proper gutter -->
+    <v-container fluid>
+      <v-form>
+      <v-col sm="6">
+      <v-text-field v-model="msg" label="Name" clearable @focus="isFocus=true" @blur="isFocus=false">
+      </v-text-field>
+      </v-col>
+      <v-btn elevation="2">
+        送信
+      </v-btn>
+
+      </v-form>
+      <!-- If using vue-router -->
+    </v-container>
+  </v-main>
+
+  <v-footer app>
+    <!-- -->
+  </v-footer>
+</v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
+  data () {
+    return {
+      msg: '',
+      isFocus: false
+    }
+  },
   components: {
-    HelloWorld
-  }
+  },
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
